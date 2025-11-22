@@ -3,8 +3,8 @@ import uuid
 import sys
 from pathlib import Path
 from sqlmodel import Session
-from database import engine, APP_NAME
-from models.models import ClipboardItem, ContentType
+from backend.database import engine, APP_NAME
+from backend.models.models import ClipboardItem, ContentType
 
 #Path: ~/.cache/clippy_tui/images/
 CACHE_DIR = Path.home() / ".cache" / APP_NAME / "images"

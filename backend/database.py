@@ -1,6 +1,6 @@
 from sqlmodel import SQLModel, create_engine
 from pathlib import Path
-from models.models import ClipboardItem
+from backend.models.models import ClipboardItem
 import os
 
 APP_NAME = "clippy_tui"
