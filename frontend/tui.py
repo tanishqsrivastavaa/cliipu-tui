@@ -5,6 +5,11 @@ from textual import on, work
 from rich.syntax import Syntax
 from rich.text import Text
 
+import sys
+from pathlib import Path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0,str(project_root))
+
 # Import our database tools
 from sqlmodel import Session, select, desc
 from backend.database import engine
@@ -26,7 +31,7 @@ class ClipboardWidget(ListItem):
         display_text = self.db_item.content.replace("\n", " ")[:30]
         yield Label(f"{icon} {display_text}...")
 
-class ClipboardApp(App):
+class ClippyTUI(App):
     """The Main TUI Application."""
     
     CSS = """
@@ -136,5 +141,5 @@ class ClipboardApp(App):
             self.notify(f"Error pasting: {e}", severity="error")
 
 if __name__ == "__main__":
-    app = ClipboardApp()
+    app = ClippyTUI()
     app.run()
